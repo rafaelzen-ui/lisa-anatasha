@@ -233,13 +233,11 @@ app.post("/api/payment/create", async (req, res) => {
 
     const referenceId = makeReference();
     const payload = {
-      channel_code: channelCode,
-      amount: numericAmount,
-      reference_id: referenceId,
-      customer_name: name,
-      customer_email: email,
-      customer_phone: whatsapp
-    };
+  channel_code: channelCode,
+  amount: numericAmount,
+  reference_id: referenceId,
+  customer_name: name
+};
 
     const raw = await paymenkuFetch("/v1/transaction/create", {
       method: "POST",
