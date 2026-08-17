@@ -236,7 +236,9 @@ app.post("/api/payment/create", async (req, res) => {
   channel_code: channelCode,
   amount: numericAmount,
   reference_id: referenceId,
-  customer_name: name
+  customer_name: name,
+  customer_email: email,
+  return_url: `${process.env.APP_URL || "https://lisa-anatasha.vercel.app"}/payment/success`
 };
 
     const raw = await paymenkuFetch("/v1/transaction/create", {
