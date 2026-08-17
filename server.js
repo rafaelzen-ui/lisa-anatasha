@@ -370,8 +370,25 @@ async function boot() {
   });
 }
 
+let dbReady = Promise.resolve();
+
 if (process.env.VERCEL) {
-  module.exports = app;
+  dbReady = initDb().catch(err => {
+    console.error("DATABASE INIT ERROR:", err);
+    throw err;
+  });
+
+  module.exports = async (req, res) => {
+    try {
+      await dbReady;
+      return app(req, res);
+    } catch (error) {
+      console.error("DATABASE INIT FAILED:", error);
+      return res.status(500).json({
+        error: "Database initialization failed"
+      });
+    }
+  };
 } else {
   boot().catch(err => {
     console.error("BOOT ERROR:", err);
