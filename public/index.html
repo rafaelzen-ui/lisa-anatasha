@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lisa Anatasha — Exclusive Collection</title>
+  <meta name="description" content="Lisa Anatasha Exclusive Collection" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="site">
+    <header class="header"><div class="brand">Lisa Anatasha</div></header>
+
+    <main id="app">
+      <section id="homeView" class="view">
+        <div class="hero">
+          <div class="hero-inner">
+            <div class="eyebrow">✨ EXCLUSIVE COLLECTION</div>
+            <h1>Exclusive<br><em>Collection</em></h1>
+            <p>Koleksi foto &amp; video premium dari Lisa Anatasha yang tidak akan kamu temukan di tempat lain.</p>
+            <button class="primary" onclick="scrollToProducts()">Lihat Koleksi</button>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div><strong>460K+</strong><span>Followers</span></div>
+          <div><strong>12</strong><span>📸 Sets</span></div>
+          <div><strong>2.4K+</strong><span>Pembeli</span></div>
+        </div>
+
+        <section class="products-wrap" id="products">
+          <h2>Koleksi Eksklusif</h2>
+          <div class="products" id="productGrid"></div>
+        </section>
+      </section>
+
+      <section id="detailView" class="view hidden"></section>
+      <section id="checkoutView" class="view hidden"></section>
+      <section id="successView" class="view hidden"></section>
+    </main>
+
+    <footer>© 2026 Lisa Anatasha · Pembayaran aman · Support 24 Jam</footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
