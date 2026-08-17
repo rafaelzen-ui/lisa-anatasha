@@ -365,7 +365,11 @@ async function boot() {
   });
 }
 
-boot().catch(err => {
-  console.error("BOOT ERROR:", err);
-  process.exit(1);
-});
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  boot().catch(err => {
+    console.error("BOOT ERROR:", err);
+    process.exit(1);
+  });
+}
