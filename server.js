@@ -275,12 +275,17 @@ app.post("/api/payment/create", async (req, res) => {
       }
     });
   } catch (error) {
-    console.error("CREATE PAYMENT:", error);
+    console.error("CREATE PAYMENT:", {
+      message: error.message,
+      status: error.status,
+      body: error.body
+    });
+
     res.status(error.status || 500).json({
       error: error.message || "Gagal membuat transaksi.",
-      details: process.env.NODE_ENV === "development" ? error.body : undefined
+      paymenku: error.body || null
     });
-  }
+}
 });
 
 app.get("/api/payment/status/:trxId", async (req, res) => {
