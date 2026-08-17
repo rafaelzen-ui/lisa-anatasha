@@ -232,15 +232,15 @@ app.post("/api/payment/create", async (req, res) => {
       return res.status(400).json({ error: "Metode pembayaran tidak tersedia." });
 
     const referenceId = makeReference();
-    const payload = {
+const payload = {
   channel_code: channelCode,
   amount: numericAmount,
   reference_id: referenceId,
   customer_name: name,
   customer_email: email,
+  customer_phone: whatsapp,
   return_url: `${process.env.APP_URL || "https://lisa-anatasha.vercel.app"}/payment/success`
 };
-
     const raw = await paymenkuFetch("/v1/transaction/create", {
       method: "POST",
       headers: { "Idempotency-Key": referenceId },
